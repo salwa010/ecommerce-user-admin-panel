@@ -1,0 +1,121 @@
+<section class="main-banner">
+    <h2 class="banner-text">Discover the latest Deals</h2>
+    <h1 class="banner-title" #typedElement></h1>
+    <button class="btn btn-white">Shop Now</button>
+</section>
+<section class="main-container">
+    <article class="products-wrapper">
+        <div class="head-wrapper">
+            <h2 class="head-title">Trending Products</h2>
+            <button class="btn btn-outline">View All</button>
+        </div>
+        <app-carousel *ngIf="products.length" [items]="4" [products]="products"></app-carousel>
+    </article>
+    <article class="products-wrapper">
+        <div class="head-wrapper">
+            <h2 class="head-title">Start Exploring Now</h2>
+            <button class="btn btn-outline">View All</button>
+        </div>
+        <ul class="ul-reset category-list">
+            <li class="category-item" *ngFor="let category of categories">
+                <img [src]="getCategoryImage(category)" alt="product image" />
+                <h3>{{ category }}</h3>
+            </li>
+        </ul>
+    </article>
+    <article class="products-wrapper">
+        <div class="head-wrapper">
+            <h2 class="head-title">Best Selling Products</h2>
+            <button class="btn btn-outline">View All</button>
+        </div>
+        <ul class="banner-grid ul-reset">
+            <li class="card" *ngFor="let product of bestSellingProducts">
+                <img [src]="product.thumbnail" alt="" alt="" />
+                <button class="btn btn-outline">Shop Now</button>
+            </li>
+        </ul>
+    </article>
+    <article class="products-wrapper">
+        <div class="head-wrapper">
+            <h2 class="head-title">Limited Time Deals</h2>
+            <button class="btn btn-outline">View All</button>
+        </div>
+        <app-carousel *ngIf="limitedTimeDeals.length" [items]="4" [products]="limitedTimeDeals"></app-carousel>
+    </article>
+
+</section>
+<article class="products-wrapper">
+    <div class="main-head-box">
+        <h2 class="main-head">Our Happy Customers</h2>
+        <p class="sub-head">
+            Don’t just take our word for it – see how our products and services have delighted customers across the globe, one experience at a time.
+        </p>
+    </div>
+
+    <div class="testimonial-wrapper">
+
+        <!-- TOP -->
+        <div class="testimonial-row move-right">
+
+            <div class="test-card" *ngFor="let item of topTestimonials">
+                <div class="head-box">
+                    <img [src]="item.image" alt="">
+
+                    <h4>{{ item.name }}</h4>
+                    <div class="star-sec">
+
+                        <span class="material-icons-round star" *ngFor="let star of [1,2,3,4,5]">
+
+    {{
+      item.rating >= star
+        ? 'star'
+        : item.rating >= star - 0.5
+        ? 'star_half'
+        : 'star_border'
+    }}
+
+  </span>
+                    </div>
+
+                </div>
+
+
+                <p>{{ item.review }}</p>
+
+            </div>
+
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="testimonial-row move-left">
+
+            <div class="test-card" *ngFor="let item of bottomTestimonials">
+                <div class="head-box">
+                    <img [src]="item.image" alt="">
+
+                    <h4>{{ item.name }}</h4>
+                    <div class="star-sec">
+
+                        <span class="material-icons-round star" *ngFor="let star of [1,2,3,4,5]">
+
+    {{
+      item.rating >= star
+        ? 'star'
+        : item.rating >= star - 0.5
+        ? 'star_half'
+        : 'star_border'
+    }}
+
+  </span>
+                    </div>
+                </div>
+
+
+                <p>{{ item.review }}</p>
+
+            </div>
+
+        </div>
+
+    </div>
+</article>

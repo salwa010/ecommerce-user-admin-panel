@@ -1,0 +1,131 @@
+@use "../../../../assets/scss/base/mixins" as *;
+@use "../../../../assets/scss/base/common" as *;
+@use "../../../../assets/scss/base/typography" as *;
+@use "../../../../assets/scss/base/colors" as *;
+.header-sec {
+    border-bottom: 1px solid rgba( #000000, 10%);
+    .top-box {
+        &.head-box {
+            @include main-flex(space-between, center);
+            padding: 12px 0;
+            .left-sec {
+                .ul-reset {
+                    li {
+                        &:first-child {
+                            border-right: 1px solid rgba( #000000, 60%);
+                            padding-right: 10px
+                        }
+                    }
+                }
+            }
+            .ul-reset {
+                @include main-flex-1(center);
+                gap: 2rem;
+                li {
+                    font-size: $font-size-14;
+                    @include main-flex(flex-start, center);
+                    gap: 5px;
+                    &.active {
+                        color: #4EA674;
+                        text-decoration: underline
+                    }
+                }
+            }
+        }
+        .left-sec {
+            @include main-flex(space-between, center);
+            gap: 15px;
+            div {
+                &:not(:last-child) {
+                    border-right: 1px solid $grey8;
+                    padding-right: 20px;
+                }
+            }
+            .locate-sec {
+                @include main-flex(flex-start, center);
+                gap: 5px;
+                .deliver-text {
+                    font-size: $font-size-12;
+                    color: $black;
+                }
+                .location {
+                    font-size: $font-size-14;
+                }
+            }
+            .country-box {
+                .user-input {
+                    width: 100px;
+                    @include d-block;
+                     ::ng-deep {
+                        .mat-mdc-form-field {
+                            width: 100%;
+                            .country-sec {
+                                @include main-flex(flex-start, center);
+                                gap: 5px;
+                            }
+                        }
+                        .mat-mdc-form-field-subscript-wrapper {
+                            @include d-none();
+                        }
+                    }
+                }
+            }
+            .logo {
+                width: 120px;
+                height: 40px;
+                background-color: #ccc;
+            }
+        }
+        .right-sec {
+            @include main-flex(flex-end, center);
+            gap: 16px;
+            .search-input {
+                &.user-input {
+                    background: #eaf8e7;
+                    border-radius: 200px;
+                     ::ng-deep {
+                        .mat-mdc-form-field {
+                            height: 100%;
+                        }
+                        .mat-mdc-form-field-infix {
+                            padding: 0;
+                            min-height: 5rem;
+                        }
+                        .mat-mdc-text-field-wrapper {
+                            padding: 0 15px 0 25px;
+                        }
+                        .mat-mdc-input-element {
+                            height: 5rem;
+                            font-size: $font-size-14;
+                        }
+                        .mdc-icon-button {
+                            font-size: $font-size-13;
+                            @include main-flex(center, center);
+                            gap: 3px;
+                            background: #fff;
+                            border-radius: 200px;
+                            width: 110px;
+                            height: 33px;
+                            .material-icons-round {
+                                font-size: $font-size-17;
+                            }
+                        }
+                    }
+                }
+            }
+            .card-box {
+                font-size: $font-size-15;
+                @include main-flex(flex-start, center);
+                gap: 3px;
+                .material-icons-round {
+                    font-size: $font-size-22;
+                }
+            }
+        }
+    }
+}
+
+::ng-deep .mat-mdc-option .country-sec {
+    @include main-flex(flex-start, center);
+    gap: 5px;
+}

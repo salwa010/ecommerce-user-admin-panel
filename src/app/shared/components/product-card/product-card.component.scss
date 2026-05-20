@@ -1,0 +1,52 @@
+@use "../../../../assets/scss/base" as *;
+.product-card {
+    .product-details {
+        h3 {
+            font-size: $font-size-16;
+            font-weight: $semiBold;
+            margin: 1rem 0;
+        }
+        p {
+            font-size: $font-size-13;
+            color: rgba($black, 0.6);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .product-price {
+            font-size: $font-size-18;
+            color: $primary;
+            @include main-flex(flex-start, center);
+            gap: 1rem;
+            .offer-det {
+                color: $black;
+                font-size: $font-size-14;
+            }
+            .original-price {
+                color: rgba($black, 0.6);
+                font-size: $font-size-14;
+                text-decoration: line-through;
+            }
+        }
+        .rating-star {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            span {
+                color: #f5b301;
+                font-size: 18px;
+            }
+        }
+        .button-container {
+            @include main-flex(space-between, center);
+            button {
+                font-size: $font-size-13;
+                &.btn-white {
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,89 @@
+<section class="head-wrapper">
+    <section class="header-sec main-container">
+        <article class="top-box head-box">
+            <aside class="left-sec">
+                <div class="logo-img">
+                    <img src="/assets/images/deal-logo.svg" alt="DealPort logo" />
+                </div>
+                <div class="locate-sec">
+                    <span class="material-icons-round"> location_on </span>
+                    <aside class="locate-box">
+                        <p class="deliver-text">Deliver to</p>
+                        <p class="location">your location</p>
+                    </aside>
+                </div>
+                <div class="country-box">
+                    <span class="user-input user-select">
+            <mat-form-field>
+              <mat-select [(value)]="selectedCountry">
+                <!-- Selected value (flag + code) -->
+                <mat-select-trigger>
+                  <span class="country-sec">
+                    <img
+                      [src]="getSelectedCountry()?.flag"
+                      width="20"
+                      height="15"
+                    />
+                    <span>{{ getSelectedCountry()?.code }}</span>
+                    </span>
+                    </mat-select-trigger>
+
+                    <!-- Options -->
+                    @for (country of countries; track country.code) {
+                    <mat-option [value]="country.code">
+                        <span class="country-sec">
+                      <img
+                        [src]="country.flag"
+                        alt="{{ country.code }}"
+                        width="20"
+                        height="15"
+                      />
+                      <span>{{ country.code }}</span>
+                        </span>
+                    </mat-option>
+                    }
+                    </mat-select>
+                    </mat-form-field>
+                    </span>
+                </div>
+            </aside>
+            <aside class="right-sec">
+                <div class="user-input search-input">
+                    <mat-form-field>
+                        <input matInput placeholder="Search" />
+                        <button mat-icon-button matSuffix>
+              <span class="material-icons-round"> search </span>
+              Search
+            </button>
+                    </mat-form-field>
+                </div>
+                <div class="user-acnt">
+                    <span class="material-icons-round"> account_circle </span>
+                </div>
+                <div class="card-box">
+                    <span class="material-icons-round"> shopping_cart </span> Cart
+                </div>
+            </aside>
+        </article>
+    </section>
+    <section class="header-sec main-container">
+        <article class="top-box head-box">
+            <aside class="left-sec">
+                <ul class="ul-reset">
+                    <li><span class="material-icons-round"> menu </span> Menu</li>
+                    <li>Explore</li>
+                    <li>Deals</li>
+                    <li>Saved</li>
+                </ul>
+            </aside>
+            <aside class="right-sec">
+                <ul class="ul-reset">
+                    <li>Home</li>
+                    <li>Product</li>
+                    <li>About Us</li>
+                    <li>Contact</li>
+                </ul>
+            </aside>
+        </article>
+    </section>
+</section>

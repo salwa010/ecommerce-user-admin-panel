@@ -1,0 +1,17 @@
+@use "../../../../assets/scss/base" as *;
+.carousel-wrapper {
+    .carousel-card {
+        border-radius: 12px;
+        padding: 12px;
+        box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+    }
+     ::ng-deep {
+        .owl-stage-outer {
+            owl-stage {
+                >div {
+                    padding: 1px;
+                }
+            }
+        }
+    }
+}

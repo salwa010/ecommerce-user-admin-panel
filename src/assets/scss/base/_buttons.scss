@@ -1,0 +1,42 @@
+@use "colors" as *;
+@use "typography" as *;
+@use "mixins" as *;
+.btn {
+    min-height: 4rem;
+    @include main-flex (center, center);
+    font-size: $font-size-16;
+    padding: 0 2rem;
+    font-weight: $semiBold;
+    font-family: $font-family;
+    cursor: pointer;
+    border-radius: 200px;
+    &.btn-primary {
+        background: #4ea674;
+        color: $white;
+        border: none;
+        transition: all 0.25s ease;
+        &:hover {
+            background: darken(#4ea674, 8%);
+            box-shadow: 0 6px 16px rgba(#4ea674, 0.35);
+            transform: translateY(-1px);
+        }
+        &:disabled {
+            background: lighten(#4ea674, 25%);
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+    }
+    &.btn-white {
+        background: $white;
+        border: 0;
+        color: #023337;
+    }
+    &.btn-outline {
+        background: $white;
+        border: 1px solid #000;
+        color: #000;
+        min-height: 30px;
+        font-size: 12px;
+        padding: 0 1.5rem;
+    }
+}

@@ -1,0 +1,40 @@
+<div class="product-card">
+    <div class="product-image">
+        <img loading="lazy" [src]="product?.images" (error)="onImageError($event)" [alt]="product?.title" />
+    </div>
+    <div class="product-details">
+        <h3>{{ product?.title || "Product Title" }}</h3>
+        <p>{{ product?.description || "Product description not available." }}</p>
+        <div class="rating-star">
+            <span class="material-icons-round" *ngFor="let star of [1, 2, 3, 4, 5]">
+        {{
+          product.rating >= star
+            ? "star"
+            : product.rating >= star - 0.5
+              ? "star_half"
+              : "star_border"
+        }}
+      </span>
+        </div>
+        <div class="product-price">
+            $ {{ product?.price || "Price not available" }}
+
+            <h3 *ngIf="product.discountPercentage" class="original-price">
+                (₹{{ getOriginalPrice(product.price, product.discountPercentage) | number: "1.2-2" }})
+            </h3>
+            <h3 class="offer-det" *ngIf="product.discountPercentage">
+                {{ product.discountPercentage | number: "1.0-0" }}% OFF
+            </h3>
+        </div>
+        <div class="button-container">
+
+            <button class="btn btn-white">
+                    View Details
+                </button>
+            <button class="btn btn-primary">
+                    Add to Cart
+                </button>
+
+        </div>
+    </div>
+</div>
